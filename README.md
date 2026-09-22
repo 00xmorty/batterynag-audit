@@ -40,6 +40,20 @@ Safety: no alerts, settings, files, or processes were changed.
 Limit: a short sample cannot prove why a notification appeared.
 ```
 
+### What can this snapshot tell you?
+
+BatteryNag Audit observes power source, battery percentage and charging state. It does not dismiss low-battery notifications or change your settings.
+
+To watch for power-source changes, run the already-downloaded tool:
+
+    ./batterynag-audit --samples 7 --interval 10
+
+A reported transition means the observed power source changed during sampling. It does not identify a faulty component or prove why a notification appeared. No transitions means only that none were observed in this short window; it does not rule out an intermittent issue.
+
+The tool cannot measure charger wattage, cable capability, battery health or whether a GUI warning appeared. If your goal is to silence notifications, this tool does not do that.
+
+If you choose to give feedback, describe whether the output was understandable and useful for your next troubleshooting step. Share only what you are comfortable making public; no full system logs or identifiers are needed.
+
 ## Safety
 
 - Read-only: no notification dismissal, preference changes, file writes, process control, `sudo`, telemetry, or network calls.
